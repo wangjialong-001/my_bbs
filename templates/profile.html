@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>profile</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/lib/webuploader/webuploader.css">
+    <style>
+        body {
+            background-image: url('/static/image/3.jpg');
+        }
+
+        .container {
+            position: absolute;
+            top: 25%;
+            left: 20%;
+        }
+
+        .main {
+            width: 80%;
+        }
+                
+        .tab {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 60px;
+            color: #00b2ff;
+        }
+
+        a {
+            color: #08c;
+            text-decoration: none;
+        }
+
+        img {
+            width: 90px;
+            height: 90px;
+            border-radius: 90px;
+        }
+
+        .wrapper {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="tab">
+                <h1> 我的主页 </h1>
+                <a>
+                     <img src={{ '/uploads/' + user.user_image + '?v=3&amp;s=120' }} title="atian25"/>
+               </a>
+            </div>
+            <div class="wrapper">
+                    <form method=post action={{ url_for("index.add_img") }} enctype=multipart/form-data>
+                        <input type=file name=file>
+                        <input id="id-input"type=submit value=上传头像>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

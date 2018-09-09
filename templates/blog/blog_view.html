@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ blog.title }}</title>
+    <style>
+        body {
+            background-image: url('/static/image/3.jpg')
+        }
+
+        .container {
+            position: absolute;
+            width: 45%;
+            left: 30%;
+        }
+
+        .content {
+            background-color: lightgrey;
+            width: 550px;
+            height: 450px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .header h1 {
+            display: inline-block;
+            color: #999;
+            font-weight: 100;
+            margin-bottom: 50px;
+        }
+
+    </style>
+</head>
+<div class="container">
+    <div class="main">
+        <!-- <div class="header"> -->
+            <!-- <h1>{{ blog.title }}</h1> -->
+        <!-- </div> -->
+        <div class="content">
+            <p>{{ blog.content }}</p>
+        </div>
+    </div>
+</div>
+
+<!-- <form method="post" action="comment/new"> -->
+    <!-- <input type="text" name="author" placeholder="author"> -->
+    <!-- <input type="text" name="content" placeholder="content"> -->
+    <!-- <input type="hidden" name="blog_id" value={{ blog.id }}> -->
+    <!-- <button type="submit">提交评论</button> -->
+<!-- </form> -->
+
+<!-- <div> -->
+    <!-- {% for c in comments %} -->
+        <!-- <div>{{ c.content }} @ {{ c.author }}</div> -->
+    <!-- {% endfor %} -->
+<!-- </div> -->
+<body>
+
+</body>
+</html>

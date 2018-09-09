@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客主页</title>
+    <style>
+        body {
+            background-color: lightgrey;
+        }
+
+        .container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .left {
+            position: fixed;
+            width: 23%;
+            height: 100%;
+            margin-right: 50px;
+        }
+
+        .personal {
+			position: absolute;
+			left: 28%;
+			top: 18%;
+            text-align: center;
+        }
+
+		.personal .tou_xiang {
+			width: 130px;
+    		border-radius: 360px;
+		}
+
+        .personal h1 {
+			color: #565454;
+			font-weight: 400;
+			margin-top: 50px;
+        }
+
+        .personal p {
+			text-align: center;
+            color: #999;
+            font-size: 14px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .personal .weibo {
+            width: 18px;
+        }
+
+        .personal .github {
+            width: 30px;
+        }
+
+        .personal .fabu {
+			color: #999;
+			font-size: 14px;
+            position:relative;
+            top: 50px;
+        }
+
+        .right {
+            width: 70%;
+            height: 100%;
+            margin-left: 330px;
+        }
+
+
+        .left .top {
+            width: 100%;
+            height: 30%;
+            background-color: #4d4d4d;
+        }
+
+        .left .bottom {
+            width: 100%;
+            height: 70%;
+            background-color: white;
+        }
+
+
+
+        .article-inner {
+            border-color: #d1d1d1;
+            box-sizing: border-box;
+            background-color: white;
+            margin-bottom: 40px;
+        }
+
+        .article-header {
+            border-left: 5px solid #4d4d4d;
+            padding: 30px 0 15px 25px;
+            padding-left: 65px;
+        }
+
+        .article-inner h1 {
+            margin-bottom: 10px;
+            display: inline;
+            font-weight: 900;
+        }
+
+        .article-entry {
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+			color: #696969;
+			margin-left: 0;
+			font-weight: 300;
+			line-height: 35px;
+			margin-bottom: 20px;
+			font-size: 26px;
+			transition: color .3s;
+        }
+
+        a {
+            background: transparent;
+            text-decoration: none;
+        }
+
+        .time {
+            position: absolute;
+            right: 10%;
+            color: #999;
+            font-size: 18px;
+        }
+
+
+        .photo {
+            margin-bottom: 30px;
+            margin-left: 65px;
+        }
+
+        .article-content {
+            margin-left: 65px;
+            margin-right: 130px;
+        }
+
+
+        .article-info {
+			min-height: 40px;
+			padding-top: 10px;
+            margin-left: 65px;
+            margin-top: 30px;
+            margin-right: 60px;
+			border-top: 1px solid #ddd;
+        }
+
+        .span {
+            display: inline-block;
+            color: #999;
+        }
+
+        .detail {
+            position: absolute;
+            right: 12%;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="top">
+                <div class="personal">
+                    <img class="tou_xiang" src="/static/image/blog/blog_touxiang.png" alt="">
+                    <h1>Jason</h1> 
+                    <p>胆小认生, 不易相处</p>
+                    <p>关于我</p>
+                    <a class="weibo" href="https://weibo.com/5663103153">
+                        <img src="/static/image/blog/weibo.png" alt="">
+                    </a>
+                    <a class="github" href="https://github.com/wangjialong-001">
+                        <img src="/static/image/blog/github.png" alt="">
+                    </a>
+                    <br>
+                    <a class="fabu" href={{ url_for(".new") }}>发布博客</a>
+                </div>
+            </div>
+            <div class="bottom">
+            </div>
+
+            
+        </div>
+        <div class="right">
+            <div class="bottom">
+                {% for b in blogs %}
+                    <div class="article-inner">
+                        <header class='article-header'>
+                            <h1 itemprop="name">
+                                <a class="article-title" href="#">
+                                    {{ b.title }}
+                                </a>
+                            </h1>
+                            <span class="time">{{ b.create_time }}</span>
+                        </header>
+                        <div class="article-entry">
+                            <div class="photo">
+                                <img src="/static/image/blog/{{ b.id }}.jpg" alt="">
+                            </div>
+                            <div class="article-content">
+                                {{ b.content }}
+                            </div>
+                            <div class="fen_ge"></div>
+                            <div class="article-info">
+                                <div class="span">
+                                    <span>标签:  {{ b.author }}</span>
+                                </div>
+                                <a class="detail" href= {{ url_for(".view", blog_id=b.id) }}>
+                                    <span id="id-right-span">展开全文>></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+<div>
+</div>
+
+</body>
+</html>
