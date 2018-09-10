@@ -1155,3 +1155,6 @@
 10:29:55 kwargs,  {'id': 2} <class 'dict'>
 10:29:55 kwargs,  {'topic_id': 2} <class 'dict'>
 10:29:56 kwargs,  {'id': 1} <class 'dict'>
+15:22:15 kwargs,  {'id': 1} <class 'dict'>
+15:22:31 kwargs,  {'username': '王家龙'} <class 'dict'>
+15:22:31 kwargs,  {'id': 1} <class 'dict'>

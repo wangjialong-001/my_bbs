@@ -59,7 +59,7 @@ def login():
     u = User.validate_login(form)
     if u is None:
         # 转到 topic.index 页面
-        return redirect(url_for('topic.index'))
+        return redirect(url_for('index.index'))
     else:
         # session 中加入 user_id 字段
         # 而且 session 对应的随机字符串保存在 cookie 中
