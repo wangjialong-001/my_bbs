@@ -32,7 +32,7 @@ class User(Model):
     def register(cls, form):
         name = form.get('username', '')
         pwd = form.get('password', '')
-        if len(name) > 2 and User.find_by(username=name) is None:
+        if len(name) > 1 and User.find_by(username=name) is None:
             u = User.new(form)
             u.password = u.salted_password(pwd)
             u.save()
