@@ -112,4 +112,5 @@ def add_img():
 # nginx 静态文件
 @main.route("/uploads/<filename>")
 def uploads(filename):
+    print("filename",filename)
     return send_from_directory(user_file_director, filename)
